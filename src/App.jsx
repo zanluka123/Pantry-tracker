@@ -1,13 +1,24 @@
 import { PantryProvider } from "./context/PantryContext";
-import Test from "./components/test";
+import Layout from "./components/Layout";
+import { BrowserRouter, Route, Routes } from "react-router";
+import PantryPage from "./pages/PantryPage";
+import AddProductPage from "./pages/AddProductPage";
 
 function App() {
   return (
-    <PantryProvider>
-      <div className="main-container">
-        <Test />
-      </div>
-    </PantryProvider>
+    <BrowserRouter>
+      <PantryProvider>
+        <div className="main-container">
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<PantryPage />} />
+              <Route path="/AddProduct" element={<AddProductPage />} />
+            </Route>
+          </Routes>
+          <Layout />
+        </div>
+      </PantryProvider>
+    </BrowserRouter>
   );
 }
 
