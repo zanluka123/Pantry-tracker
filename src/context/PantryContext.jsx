@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const ProductsContext = createContext();
 const DispatchContext = createContext();
@@ -24,9 +24,20 @@ const reducer = function (state, action) {
   }
 };
 
+const loadInitialState = function (initial) {
+  const savedItems = localStorage.getItem("product");
+  if (savedItems === null) return initial;
+  return { products: JSON.parse(savedItems) };
+};
+
 export function PantryProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState, loadInitialState);
   const { products } = state;
+
+  useEffect(() => {
+    localStorage.setItem("product", JSON.stringify(products));
+  }, [products]);
+
   return (
     <ProductsContext.Provider value={products}>
       <DispatchContext.Provider value={dispatch}>{children}</DispatchContext.Provider>
