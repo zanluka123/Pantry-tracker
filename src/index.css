@@ -1,0 +1,16 @@
+:root {
+  --expired-bg: #fbe9e7;
+  --expired-text: #9f2a1b;
+  --soon-bg: #fcefd9;
+  --soon-text: #8a4a0b;
+  --ok-bg: #e3f0e8;
+  --ok-text: #23573f;
+  --card-text: #f6f5f0;
+  --card-bg: #eef3ec;
+}
+
+.main-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}

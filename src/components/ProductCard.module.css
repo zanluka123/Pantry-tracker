@@ -1,0 +1,79 @@
+/* The card: info on the left, actions on the right */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: var(--card-bg);
+  color: #1c2b22; /* dark text, so the name is always readable */
+  border-radius: 16px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+
+/* Left: name, brand, date stacked */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.details {
+  margin: 0;
+  font-size: 13px;
+  color: #5b6b61;
+}
+
+/* Right: badge and delete button side by side */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0; /* never squeezed by a long product name */
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.expired {
+  background-color: var(--expired-bg);
+  color: var(--expired-text);
+}
+
+.soon {
+  background-color: var(--soon-bg);
+  color: var(--soon-text);
+}
+
+.ok {
+  background-color: var(--ok-bg);
+  color: var(--ok-text);
+}
+
+/* Simple delete button */
+.deleteButton {
+  font: inherit;
+  font-size: 13px;
+  padding: 6px 10px;
+  border: 1px solid #c9cfc3;
+  border-radius: 8px;
+  background: transparent;
+  color: #9f2a1b;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: var(--expired-bg);
+}

@@ -8,15 +8,12 @@ function App() {
   return (
     <BrowserRouter>
       <PantryProvider>
-        <div className="main-container">
-          <Routes>
-            <Route element={<Layout />}>
-              <Route path="/" element={<PantryPage />} />
-              <Route path="/AddProduct" element={<AddProductPage />} />
-            </Route>
-          </Routes>
-          <Layout />
-        </div>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<PantryPage />} />
+            <Route path="/AddProduct" element={<AddProductPage />} />
+          </Route>
+        </Routes>
       </PantryProvider>
     </BrowserRouter>
   );
