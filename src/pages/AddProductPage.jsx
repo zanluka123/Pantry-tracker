@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useProductsDispatch } from "../context/PantryContext";
+import useProduct from "../hooks/useProduct";
 
 function AddProductPage() {
   const dispatch = useProductsDispatch();
   const navigate = useNavigate();
+  const { product, isLoading, error, findProduct } = useProduct();
 
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
+  const [barcode, setBarcode] = useState("");
 
   const handleSubmit = function (e) {
     e.preventDefault();
@@ -29,6 +32,17 @@ function AddProductPage() {
 
   return (
     <div>
+      <input
+        type="text"
+        inputMode="numeric"
+        placeholder="Barcode, e.g. 3017620422003"
+        value={barcode}
+        onChange={(e) => setBarcode(e.target.value)}
+      />
+      <button onClick={() => findProduct(barcode)}>Find Product</button>
+      {isLoading && <p>Searching...</p>}
+      {error && <p>{error}</p>}
+      {product && <p>{product.name}</p>}
       <h1>Add product</h1>
       <form onSubmit={handleSubmit}>
         <input
