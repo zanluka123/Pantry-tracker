@@ -13,6 +13,14 @@ function AddProductPage() {
   const [expiryDate, setExpiryDate] = useState("");
   const [barcode, setBarcode] = useState("");
 
+  const handleFind = async function () {
+    const foundItem = await findProduct(barcode);
+    if (foundItem) {
+      setName(foundItem.name);
+      setBrand(foundItem.brand);
+    }
+  };
+
   const handleSubmit = function (e) {
     e.preventDefault();
     if (!name || !expiryDate) return;
@@ -39,10 +47,12 @@ function AddProductPage() {
         value={barcode}
         onChange={(e) => setBarcode(e.target.value)}
       />
-      <button onClick={() => findProduct(barcode)}>Find Product</button>
+
+      <button onClick={handleFind}>Find Product</button>
       {isLoading && <p>Searching...</p>}
       {error && <p>{error}</p>}
       {product && <p>{product.name}</p>}
+
       <h1>Add product</h1>
       <form onSubmit={handleSubmit}>
         <input

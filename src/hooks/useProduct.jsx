@@ -14,6 +14,7 @@ function useProduct() {
     try {
       const result = await fetchProductsBarCode(barcode);
       setProduct(result);
+      return result;
     } catch (err) {
       setError(err.message);
     } finally {
