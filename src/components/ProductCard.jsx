@@ -3,8 +3,8 @@ import { getDaysLeft, getExpiryStatus } from "../utils/expiry";
 import styles from "./ProductCard.module.css";
 
 function ProductCard({ product }) {
-  const status = getExpiryStatus(product.expiryDate);
-  const daysLeft = getDaysLeft(product.expiryDate);
+  const status = getExpiryStatus(product.expiryDate); // return soon , ok , expired
+  const daysLeft = getDaysLeft(product.expiryDate); // return a number how many days before it expired
   const dispatch = useProductsDispatch();
 
   let label;
@@ -18,9 +18,8 @@ function ProductCard({ product }) {
   else label = `${daysLeft} days left`;
 
   return (
-    // Two children: .info on the left, .actions on the right
     <div className={styles.card}>
-      <img src={product.image} alt="" />
+      {product.image && <img className={styles.cardimage} src={product.image} alt={product.name} />}
       <div className={styles.info}>
         <h2 className={styles.name}>{product.name}</h2>
         {product.brand && <p className={styles.details}>{product.brand}</p>}

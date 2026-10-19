@@ -1,18 +1,17 @@
-/* The card: info on the left, actions on the right */
 .card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
   background-color: var(--card-bg);
-  color: #1c2b22; /* dark text, so the name is always readable */
+  color: #1c2b22;
   border-radius: 16px;
   padding: 12px 16px;
   margin-bottom: 10px;
 }
 
-/* Left: name, brand, date stacked */
 .info {
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -31,12 +30,11 @@
   color: #5b6b61;
 }
 
-/* Right: badge and delete button side by side */
 .actions {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-shrink: 0; /* never squeezed by a long product name */
+  flex-shrink: 0;
 }
 
 .badge {
@@ -62,7 +60,6 @@
   color: var(--ok-text);
 }
 
-/* Simple delete button */
 .deleteButton {
   font: inherit;
   font-size: 13px;
@@ -76,4 +73,74 @@
 
 .deleteButton:hover {
   background-color: var(--expired-bg);
+}
+
+.cardimage {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+/* @media (max-width: 768px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .cardimage {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+  }
+} */
+/* ============================================
+   💻 DEFAULT: desktop (1024px and wider)
+   Write your normal styles here, no media query
+   ============================================ */
+
+/* ============================================
+   💻 Small laptop (up to 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+}
+
+/* ============================================
+   📟 Tablet (up to 768px)
+   ============================================ */
+@media (max-width: 768px) {
+}
+
+/* ============================================
+   📱 Phone (up to 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .cardimage {
+    width: 160px;
+    height: 160px;
+    border-radius: 10px;
+  }
+}
+
+/* ============================================
+   📱 Small phone (up to 360px), e.g. old Androids
+   ============================================ */
+@media (max-width: 360px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .cardimage {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
 }
