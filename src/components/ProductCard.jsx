@@ -8,14 +8,19 @@ function ProductCard({ product }) {
   const dispatch = useProductsDispatch();
 
   let label;
+  const months = Math.floor(daysLeft / 30);
+  const years = Math.floor(daysLeft / 365);
   if (status === "expired") label = "Expired";
   else if (daysLeft === 0) label = "Expires today";
   else if (daysLeft === 1) label = "1 day left";
+  else if (daysLeft >= 365) label = `${years} ${years === 1 ? "year" : "years"} left`;
+  else if (daysLeft > 30) label = `${months} ${months === 1 ? "month" : "months"} left `;
   else label = `${daysLeft} days left`;
 
   return (
     // Two children: .info on the left, .actions on the right
     <div className={styles.card}>
+      <img src={product.image} alt="" />
       <div className={styles.info}>
         <h2 className={styles.name}>{product.name}</h2>
         {product.brand && <p className={styles.details}>{product.brand}</p>}

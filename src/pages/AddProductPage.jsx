@@ -12,24 +12,31 @@ function AddProductPage() {
   const [brand, setBrand] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [barcode, setBarcode] = useState("");
+  const [formError, setFormError] = useState("");
 
   const handleFind = async function () {
     const foundItem = await findProduct(barcode);
     if (foundItem) {
       setName(foundItem.name);
       setBrand(foundItem.brand);
+      console.log("Found Item", foundItem);
     }
   };
 
   const handleSubmit = function (e) {
     e.preventDefault();
-    if (!name || !expiryDate) return;
+    if (!name || !expiryDate) {
+      setFormError("Please enter a name and expiry date");
+      return;
+    }
 
     const newProduct = {
       id: crypto.randomUUID(),
       name: name,
       brand: brand,
       expiryDate: expiryDate,
+      barcode: barcode,
+      image: product?.image || "",
       addedAt: new Date().toISOString(),
     };
 
@@ -74,6 +81,7 @@ function AddProductPage() {
           value={expiryDate}
           onChange={(e) => setExpiryDate(e.target.value)}
         />
+        {formError && <p>{formError}</p>}
         <button type="submit">Add product</button>
       </form>
     </div>
