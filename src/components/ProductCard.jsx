@@ -1,6 +1,7 @@
 import { useProductsDispatch } from "../context/PantryContext";
 import { getDaysLeft, getExpiryStatus } from "../utils/expiry";
 import styles from "./ProductCard.module.css";
+import { Link } from "react-router";
 
 function ProductCard({ product }) {
   const status = getExpiryStatus(product.expiryDate); // return soon , ok , expired
@@ -18,7 +19,7 @@ function ProductCard({ product }) {
   else label = `${daysLeft} days left`;
 
   return (
-    <div className={styles.card}>
+    <Link to={`/item/${product.id}`} className={styles.card}>
       {product.image && <img className={styles.cardimage} src={product.image} alt={product.name} />}
       <div className={styles.info}>
         <h2 className={styles.name}>{product.name}</h2>
@@ -35,7 +36,7 @@ function ProductCard({ product }) {
           Delete
         </button>
       </div>
-    </div>
+    </Link>
   );
 }
 

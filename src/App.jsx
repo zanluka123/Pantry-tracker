@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import { BrowserRouter, Route, Routes } from "react-router";
 import PantryPage from "./pages/PantryPage";
 import AddProductPage from "./pages/AddProductPage";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<PantryPage />} />
             <Route path="/AddProduct" element={<AddProductPage />} />
+            <Route path="/item/:id" element={<ProductPage />} />
           </Route>
         </Routes>
       </PantryProvider>
