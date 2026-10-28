@@ -1,4 +1,5 @@
 import { useSearchParams } from "react-router";
+import styles from "./FilterButtons.module.css";
 
 function FilterButtons() {
   const filterOptions = ["All", "Expiring", "Expired"];
@@ -6,10 +7,11 @@ function FilterButtons() {
   const activeFilter = searchParams.get("filter") || "all";
   console.log(activeFilter);
   return (
-    <div>
+    <div className={styles.row}>
       {filterOptions.map((option) => {
         return (
           <button
+            className={activeFilter === option.toLocaleLowerCase() ? styles.active : styles.button}
             key={option}
             onClick={() => setSearchParams({ filter: option.toLocaleLowerCase() })}
           >
