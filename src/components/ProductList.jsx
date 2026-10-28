@@ -9,7 +9,7 @@ function ProductList() {
   const activeFilter = searchParams.get("filter") || "all";
 
   const filteredProducts = products.filter((product) => {
-    const status = getExpiryStatus(product.expiryDate);
+    const status = getExpiryStatus(product.expiryDate); // expired,soon or ok
     if (activeFilter === "expired") return status === "expired";
     if (activeFilter === "expiring") return status === "soon";
     return "ok";
@@ -22,14 +22,6 @@ function ProductList() {
   if (filteredProducts.length === 0) {
     return <p>No products match this filter</p>;
   }
-  console.log(
-    "filter:",
-    activeFilter,
-    "products:",
-    products.length,
-    "filtered:",
-    filteredProducts.length,
-  );
 
   return (
     <>
