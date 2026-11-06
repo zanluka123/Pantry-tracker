@@ -3,6 +3,7 @@ import { getExpiryStatus } from "../utils/expiry";
 
 function PantrySummary() {
   const items = useProducts();
+
   const expiredItems = items.filter((item) => {
     const status = getExpiryStatus(item.expiryDate);
     return status === "expired";

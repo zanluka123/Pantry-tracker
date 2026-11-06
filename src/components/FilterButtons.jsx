@@ -4,7 +4,7 @@ import styles from "./FilterButtons.module.css";
 function FilterButtons() {
   const filterOptions = ["All", "Expiring", "Expired"];
   const [searchParams, setSearchParams] = useSearchParams();
-  const activeFilter = searchParams.get("filter") || "all";
+  const activeFilter = searchParams.get("filter") || "All";
   console.log(activeFilter);
   return (
     <div className={styles.row}>

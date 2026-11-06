@@ -19,6 +19,15 @@ const reducer = function (state, action) {
         ...state,
         products: state.products.filter((product) => product.id !== action.payload),
       };
+    case "updateDate":
+      return {
+        ...state,
+        products: state.products.map((product) =>
+          product.id === action.payload.id
+            ? { ...product, expiryDate: action.payload.expiryDate }
+            : product,
+        ),
+      };
     default:
       throw new Error("Unknown action" + action.type);
   }

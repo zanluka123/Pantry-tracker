@@ -6,10 +6,10 @@ import { getExpiryStatus } from "../utils/expiry";
 function ProductList() {
   const products = useProducts();
   const [searchParams] = useSearchParams();
-  const activeFilter = searchParams.get("filter") || "all";
+  const activeFilter = searchParams.get("filter") || "All";
 
   const filteredProducts = products.filter((product) => {
-    const status = getExpiryStatus(product.expiryDate); // expired,soon or ok
+    const status = getExpiryStatus(product.expiryDate);
     if (activeFilter === "expired") return status === "expired";
     if (activeFilter === "expiring") return status === "soon";
     return "ok";

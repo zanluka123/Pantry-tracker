@@ -4,8 +4,8 @@ import styles from "./ProductCard.module.css";
 import { Link } from "react-router";
 
 function ProductCard({ product }) {
-  const status = getExpiryStatus(product.expiryDate); // return soon , ok , expired
-  const daysLeft = getDaysLeft(product.expiryDate); // return a number how many days before it expired
+  const status = getExpiryStatus(product.expiryDate);
+  const daysLeft = getDaysLeft(product.expiryDate);
   const dispatch = useProductsDispatch();
 
   let label;
