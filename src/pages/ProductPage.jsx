@@ -18,11 +18,13 @@ function ProductPage() {
   const status = getExpiryStatus(item.expiryDate);
   const daysLeft = getDaysLeft(item.expiryDate);
 
+  // function that handles delete item
   const handleDelete = function () {
     dispatch({ type: "deleteItem", payload: item.id });
     navigate("/");
   };
 
+  // function that handles new date
   const handleNewDate = function () {
     if (!newDate) return;
     dispatch({
