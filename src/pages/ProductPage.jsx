@@ -49,7 +49,13 @@ function ProductPage() {
           <p className={styles.expiryDate}>{item.expiryDate}</p>
         </div>
         <span className={styles.daysLeft}>
-          {daysLeft < 0 ? "Expired" : daysLeft === 0 ? "Today" : `${daysLeft} days left`}
+          {daysLeft < 0
+            ? "Expired"
+            : daysLeft === 0
+              ? "Today"
+              : daysLeft === 1
+                ? "1 day left"
+                : `${daysLeft} days left`}
         </span>
       </div>
 

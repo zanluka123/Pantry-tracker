@@ -5,7 +5,6 @@ import PantrySummary from "../components/PantrySummary";
 function PantryPage() {
   return (
     <div>
-      <h1>Pantry page</h1>
       <p>
         {new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })}
       </p>
