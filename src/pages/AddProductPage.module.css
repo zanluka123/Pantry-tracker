@@ -96,3 +96,8 @@
   margin: 0;
   color: #9f2a1b;
 }
+
+.search .input {
+  flex: 1;
+  min-width: 0;
+}

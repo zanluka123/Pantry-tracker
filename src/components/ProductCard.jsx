@@ -31,7 +31,10 @@ function ProductCard({ product }) {
         <span className={`${styles.badge} ${styles[status]}`}>{label}</span>
         <button
           className={styles.deleteButton}
-          onClick={() => dispatch({ type: "deleteItem", payload: product.id })}
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch({ type: "deleteItem", payload: product.id });
+          }}
         >
           Delete
         </button>
