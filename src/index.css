@@ -14,3 +14,18 @@
   margin: 0 auto;
   padding: 16px;
 }
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: #f6f5f0;
+  color: #1c2b22;
+}
+
+h1,
+h2 {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+button,
+input {
+  font-family: inherit;
+}

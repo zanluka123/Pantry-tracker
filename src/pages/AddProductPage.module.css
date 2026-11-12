@@ -1,0 +1,98 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+}
+
+.search .input {
+  flex: 1;
+}
+
+.input {
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #c9cfc3;
+  border-radius: 12px;
+  background: #ffffff;
+  font-size: 16px;
+  color: #1c2b22;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.found {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.foundImage {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.foundLabel {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #2f6b4f;
+}
+
+.foundName {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.primaryButton {
+  height: 56px;
+  border: none;
+  border-radius: 18px;
+  background: #1c2b22;
+  color: #f6f5f0;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondaryButton {
+  padding: 0 18px;
+  border: 1px solid #1c2b22;
+  border-radius: 12px;
+  background: transparent;
+  color: #1c2b22;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.info {
+  margin: 0;
+  color: #5b6b61;
+}
+
+.error {
+  margin: 0;
+  color: #9f2a1b;
+}

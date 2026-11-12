@@ -1,5 +1,6 @@
 import { useProducts } from "../context/PantryContext";
 import { getExpiryStatus } from "../utils/expiry";
+import styles from "./PantrySummary.module.css";
 
 function PantrySummary() {
   const items = useProducts();
@@ -18,10 +19,19 @@ function PantrySummary() {
   const soonExpiredCount = soonExpiredItems.length;
 
   return (
-    <div>
-      <p>Expired items : {expiredCount}</p>
-      <p>Soon expired : {soonExpiredCount} </p>
-      <p>Total items in pantry :{items.length} </p>
+    <div className={styles.grid}>
+      <div className={`${styles.box} ${styles.expired}`}>
+        <span className={styles.number}>{expiredCount}</span>
+        <span className={styles.label}>Expired</span>
+      </div>
+      <div className={`${styles.box} ${styles.soon}`}>
+        <span className={styles.number}>{soonExpiredCount}</span>
+        <span className={styles.label}>Expiring soon</span>
+      </div>
+      <div className={`${styles.box} ${styles.total}`}>
+        <span className={styles.number}>{items.length}</span>
+        <span className={styles.label}>Total</span>
+      </div>
     </div>
   );
 }

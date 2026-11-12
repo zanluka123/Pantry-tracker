@@ -1,10 +1,19 @@
 import { NavLink } from "react-router";
+import styles from "./Navbar.module.css";
+
 function Navbar() {
   return (
-    <div>
-      <NavLink to="/">My Pantry</NavLink>
-      <NavLink to="/AddProduct">Add Product</NavLink>
-    </div>
+    <nav className={styles.nav}>
+      <span className={styles.logo}>Pantry</span>
+      <div className={styles.links}>
+        <NavLink to="/" end className={styles.link}>
+          My pantry
+        </NavLink>
+        <NavLink to="/AddProduct" className={styles.link}>
+          Add product
+        </NavLink>
+      </div>
+    </nav>
   );
 }
 

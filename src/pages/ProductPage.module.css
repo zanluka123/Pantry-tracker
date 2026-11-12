@@ -1,0 +1,98 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.backButton {
+  align-self: flex-start;
+  padding: 8px 14px;
+  border: 1px solid #c9cfc3;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #1c2b22;
+  cursor: pointer;
+}
+
+.image {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 22px;
+}
+
+.brand {
+  margin: 0;
+  font-size: 13px;
+  color: #5b6b61;
+}
+
+.name {
+  margin: 4px 0 0;
+  font-size: 28px;
+}
+
+.expiryBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 16px;
+}
+
+.expiryLabel {
+  margin: 0;
+  font-size: 13px;
+}
+
+.expiryDate {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.daysLeft {
+  font-weight: 700;
+}
+
+.changeDate {
+  display: flex;
+  gap: 8px;
+}
+
+.input {
+  flex: 1;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #c9cfc3;
+  border-radius: 12px;
+  background: #ffffff;
+  font-size: 16px;
+}
+
+.secondaryButton {
+  padding: 0 18px;
+  border: 1px solid #1c2b22;
+  border-radius: 12px;
+  background: transparent;
+  color: #1c2b22;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.barcode {
+  margin: 0;
+  font-size: 13px;
+  color: #5b6b61;
+}
+
+.deleteButton {
+  height: 52px;
+  border: 1px solid #c9cfc3;
+  border-radius: 18px;
+  background: transparent;
+  color: #9f2a1b;
+  font-weight: 700;
+  cursor: pointer;
+}

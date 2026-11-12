@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import { useProducts, useProductsDispatch } from "../context/PantryContext";
 import { getDaysLeft, getExpiryStatus } from "../utils/expiry";
-import styles from "../components/ProductCard.module.css"; // reuse the badge colors
-import { useState } from "react";
+import cardStyles from "../components/ProductCard.module.css";
+import styles from "./ProductPage.module.css";
 
 function ProductPage() {
   const [newDate, setNewDate] = useState("");
@@ -18,41 +19,57 @@ function ProductPage() {
   const status = getExpiryStatus(item.expiryDate);
   const daysLeft = getDaysLeft(item.expiryDate);
 
-  // function that handles delete item
   const handleDelete = function () {
     dispatch({ type: "deleteItem", payload: item.id });
     navigate("/");
   };
 
-  // function that handles new date
-  const handleNewDate = function () {
+  const handleSaveDate = function () {
     if (!newDate) return;
-    dispatch({
-      type: "updateDate",
-      payload: { id: item.id, expiryDate: newDate },
-    });
+    dispatch({ type: "updateDate", payload: { id: item.id, expiryDate: newDate } });
     setNewDate("");
   };
 
   return (
-    <div>
-      <input type="date" value={newDate} onChange={(e) => setNewDate(e.target.value)} />
-      <button onClick={handleNewDate}>Save date</button>
-      <button onClick={() => navigate(-1)}>Back</button>
-      {item.image && <img src={item.image} alt={item.name} width="200" />}
+    <div className={styles.page}>
+      <button className={styles.backButton} onClick={() => navigate(-1)}>
+        ← Back
+      </button>
 
-      <h1>{item.name}</h1>
+      {item.image && <img className={styles.image} src={item.image} alt={item.name} />}
 
-      {item.brand && <p>{item.brand}</p>}
+      <div>
+        {item.brand && <p className={styles.brand}>{item.brand}</p>}
+        <h1 className={styles.name}>{item.name}</h1>
+      </div>
 
-      <p>Expires {item.expiryDate}</p>
-      <span className={`${styles.badge} ${styles[status]}`}>
-        {daysLeft < 0 ? "Expired" : `${daysLeft} days left`}
-      </span>
+      <div className={`${styles.expiryBox} ${cardStyles[status]}`}>
+        <div>
+          <p className={styles.expiryLabel}>Expires</p>
+          <p className={styles.expiryDate}>{item.expiryDate}</p>
+        </div>
+        <span className={styles.daysLeft}>
+          {daysLeft < 0 ? "Expired" : daysLeft === 0 ? "Today" : `${daysLeft} days left`}
+        </span>
+      </div>
 
-      {item.barcode && <p>Barcode: {item.barcode}</p>}
+      <div className={styles.changeDate}>
+        <input
+          className={styles.input}
+          type="date"
+          value={newDate}
+          onChange={(e) => setNewDate(e.target.value)}
+        />
+        <button className={styles.secondaryButton} onClick={handleSaveDate}>
+          Save date
+        </button>
+      </div>
 
-      <button onClick={handleDelete}>Delete</button>
+      {item.barcode && <p className={styles.barcode}>Barcode: {item.barcode}</p>}
+
+      <button className={styles.deleteButton} onClick={handleDelete}>
+        Delete product
+      </button>
     </div>
   );
 }

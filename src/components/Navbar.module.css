@@ -1,0 +1,32 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logo {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.links {
+  display: flex;
+  gap: 8px;
+}
+
+.link {
+  text-decoration: none;
+  color: #1c2b22;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #c9cfc3;
+  font-size: 14px;
+}
+
+.link:global(.active) {
+  background-color: #1c2b22;
+  color: #f6f5f0;
+  border-color: #1c2b22;
+}

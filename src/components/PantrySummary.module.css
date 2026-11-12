@@ -1,0 +1,38 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.box {
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.number {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.label {
+  font-size: 13px;
+}
+
+.expired {
+  background-color: var(--expired-bg);
+  color: var(--expired-text);
+}
+
+.soon {
+  background-color: var(--soon-bg);
+  color: var(--soon-text);
+}
+
+.total {
+  background-color: #ffffff;
+}
