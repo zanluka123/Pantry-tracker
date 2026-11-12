@@ -4,10 +4,11 @@ A mobile-first web app for tracking food expiry dates, so less food goes to wast
 
 **Live demo:** https://pantry-tracker-kyii.vercel.app
 
+<img src="./screenshots/main.png" alt="My pantry page" width="800" />
+
 <p>
-  <img src="./screenshots/main.png" alt="My pantry page on mobile" width="260" />
-  <img src="./screenshots/add.png" alt="Add product page on mobile" width="260" />
-  <img src="./screenshots/detail.png" alt="Product detail page on mobile" width="260" />
+  <img src="./screenshots/add.png" alt="Add product page" width="395" />
+  <img src="./screenshots/detail.png" alt="Product detail page" width="395" />
 </p>
 
 ## Features
